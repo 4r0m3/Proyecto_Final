@@ -1,11 +1,18 @@
 #include "Pista.h"
+#include <iostream>
 
-Pista::Pista(const std::string& descripcion) : descripcion(descripcion), clave(false) {}
+Pista::Pista(std::string descripcion, bool esRelevante)
+    : ObjetoInteractivo("Pista"), // Llamada al constructor de la clase base
+    descripcion(descripcion), esRelevante(esRelevante) {}
 
-void Pista::marcarComoClave() {
-    clave = true;
+void Pista::inspeccionar() {
+    std::cout << "DescripciÃ³n: " << descripcion << std::endl;
 }
 
-bool Pista::esClave() const {
-    return clave;
+std::string Pista::obtenerDescripcion() const {
+    return descripcion;
+}
+
+void Pista::marcarComoRelevante() {
+    esRelevante = true;
 }

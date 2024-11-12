@@ -1,15 +1,20 @@
 #ifndef PISTA_H
 #define PISTA_H
+
 #include <string>
+#include "ObjetoInteractivo.h"
 using namespace std;
-class Pista {
+
+class Pista : public ObjetoInteractivo {
 public:
-    Pista(const string& descripcion);
-    void marcarComoClave();
-    bool esClave() const;
+    Pista(string descripcion, bool esRelevante);
+    void inspeccionar();
+    string obtenerDescripcion() const;
+    void marcarComoRelevante();
+
 private:
     string descripcion;
-    bool clave;
+    bool esRelevante;
 };
 
 #endif // PISTA_H

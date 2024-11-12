@@ -1,18 +1,19 @@
 #ifndef SOSPECHOSO_H
 #define SOSPECHOSO_H
-#include <vector>
+
 #include <string>
+#include <map>
 using namespace std;
 
 class Sospechoso {
 public:
-    Sospechoso(const string& nombre, const string& descripcion);
-    string darRespuesta(); //devuelve una respuesta
+    Sospechoso(string nombre);
+    string darRespuesta(int pregunta);
+    void mostrarInformacion();
+
 private:
     string nombre;
-    string descripcion;
-    vector<string> respuestas;
-
+    map<int, string> respuestas;
 };
 
 #endif // SOSPECHOSO_H

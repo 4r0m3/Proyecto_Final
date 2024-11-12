@@ -406,3 +406,10 @@ D:/ProyectoFinal/final/nivel.cpp
 D:/ProyectoFinal/final/pista.cpp
 D:/ProyectoFinal/final/sospechoso.cpp
 D:/ProyectoFinal/final/Nivel.h
+D:/ProyectoFinal/final/NivelEntrevista.h
+D:/ProyectoFinal/final/lisa.h
+D:/ProyectoFinal/final/NivelEscenaCrimen.h
+D:/ProyectoFinal/final/NivelResolucion.h
+D:/ProyectoFinal/final/objetointeractivo.h
+D:/ProyectoFinal/final/objetointeractivo.cpp
+D:/ProyectoFinal/final/lisa.cpp

@@ -1,14 +1,12 @@
 #include "Sospechoso.h"
+#include <iostream>
 
-using namespace std;
+Sospechoso::Sospechoso(std::string nombre) : nombre(nombre) {}
 
-Sospechoso::Sospechoso(const string& nombre, const string& descripcion)
-    : nombre(nombre), descripcion(descripcion){
-    //agrega respuestas
-    respuestas.push_back("si, fui yo");
-    respuestas.push_back("no fui yo") ;
+std::string Sospechoso::darRespuesta(int pregunta) {
+    return respuestas.count(pregunta) ? respuestas[pregunta] : "Respuesta no disponible";
 }
-string Sospechoso::darRespuesta(){
-    //por simplicidad, devuelve la primera respuesta
-    return respuestas.empty() ? "" : respuestas[0];
+
+void Sospechoso::mostrarInformacion() {
+    std::cout << "InformaciÃ³n de sospechoso: " << nombre << std::endl;
 }

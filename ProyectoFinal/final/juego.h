@@ -1,13 +1,54 @@
 #ifndef JUEGO_H
 #define JUEGO_H
 
+#include <vector>
+#include "Nivel.h"
+#include "inventario.h"
+
+using namespace std;
+
+/**
+ * @brief Clase principal que controla el flujo del juego
+ * @details Gestiona el inventario, los niveles y el progreso del jugador
+ */
 class Juego {
 public:
-    Juego(); //constrcutor
-    void iniciarJuego(); //inicia el juego
-    void terminarJuego(); // termina el juego
+    Juego();
+    ~Juego();
+
+    /**
+     * @brief Inicia el juego y carga el primer nivel
+     */
+    void iniciarJuego();
+
+    /**
+     * @brief Carga un nivel especÃ­fico por su ID
+     * @param nivelID ID del nivel a cargar
+     */
+    void cargarNivel(int nivelID);
+
+    /**
+     * @brief Muestra el contenido actual del inventario
+     */
+    void mostrarInventario() const;
+
+    /**
+     * @brief Agrega puntos al contador de verdad
+     * @param puntos Cantidad de puntos a agregar
+     */
+    void actualizarPuntosVerdad(int puntos);
+
+    /**
+     * @brief Acceso al inventario del juego
+     * @return Puntero al inventario actual del juego
+     */
+    Inventario* getInventario() const;
+
 private:
-    int nivelActual; // variable para el seguimiento del nivel
+    Inventario* inventario; ///< Inventario de pistas recolectadas por el jugador
+    Nivel* nivelActual; ///< Puntero al nivel actual
+    int puntosVerdad; ///< Puntaje de progreso en el juego
+    int nivelActualID; ///< ID del nivel actual
 };
 
 #endif // JUEGO_H
