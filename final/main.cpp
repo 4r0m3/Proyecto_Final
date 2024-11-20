@@ -10,8 +10,8 @@
 
 int main(int argc, char *argv[])
 {
-    Juego juego;
-    juego.iniciarJuego();
+    juego game;
+    game.iniciarJuego();
 
     QApplication a(argc, argv);
     MainWindow w;

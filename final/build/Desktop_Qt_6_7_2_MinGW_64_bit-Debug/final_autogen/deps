@@ -1,9 +1,5 @@
 final_autogen/timestamp: \
 	D:/ProyectoFinal/final/CMakeLists.txt \
-	D:/ProyectoFinal/final/Nivel.h \
-	D:/ProyectoFinal/final/NivelEntrevista.h \
-	D:/ProyectoFinal/final/NivelEscenaCrimen.h \
-	D:/ProyectoFinal/final/NivelResolucion.h \
 	D:/ProyectoFinal/final/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
 	D:/ProyectoFinal/final/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeCXXCompiler.cmake \
 	D:/ProyectoFinal/final/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/3.29.3/CMakeRCCompiler.cmake \
@@ -15,9 +11,19 @@ final_autogen/timestamp: \
 	D:/ProyectoFinal/final/inventario.h \
 	D:/ProyectoFinal/final/juego.cpp \
 	D:/ProyectoFinal/final/juego.h \
+	D:/ProyectoFinal/final/lisa.cpp \
+	D:/ProyectoFinal/final/lisa.h \
 	D:/ProyectoFinal/final/main.cpp \
 	D:/ProyectoFinal/final/mainwindow.cpp \
 	D:/ProyectoFinal/final/mainwindow.h \
+	D:/ProyectoFinal/final/nivel.cpp \
+	D:/ProyectoFinal/final/nivel.h \
+	D:/ProyectoFinal/final/nivelentrevista.cpp \
+	D:/ProyectoFinal/final/nivelentrevista.h \
+	D:/ProyectoFinal/final/nivelescenacrimen.cpp \
+	D:/ProyectoFinal/final/nivelescenacrimen.h \
+	D:/ProyectoFinal/final/nivelresolucion.cpp \
+	D:/ProyectoFinal/final/nivelresolucion.h \
 	D:/ProyectoFinal/final/objetointeractivo.cpp \
 	D:/ProyectoFinal/final/objetointeractivo.h \
 	D:/ProyectoFinal/final/pista.cpp \

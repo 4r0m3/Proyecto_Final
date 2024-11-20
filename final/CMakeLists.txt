@@ -28,12 +28,19 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 
         inventario.h inventario.cpp
         dialogo.h dialogo.cpp
-        juego.h juego.cpp
-        Nivel.h
-        NivelEntrevista.h
-        NivelEscenaCrimen.h
-        NivelResolucion.h
+
+
+
+
+
         objetointeractivo.h objetointeractivo.cpp
+        lisa.h lisa.cpp
+        nivel.h nivel.cpp
+        nivelescenacrimen.h nivelescenacrimen.cpp
+        nivelresolucion.h nivelresolucion.cpp
+        nivelentrevista.h nivelentrevista.cpp
+        juego.h juego.cpp
+
 
     )
 # Define target properties for Android with Qt 6 as:

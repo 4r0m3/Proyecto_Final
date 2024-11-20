@@ -257,30 +257,6 @@
 	"HEADERS" : 
 	[
 		[
-			"D:/ProyectoFinal/final/Nivel.h",
-			"MU",
-			"EWIEGA46WW/moc_Nivel.cpp",
-			null
-		],
-		[
-			"D:/ProyectoFinal/final/NivelEntrevista.h",
-			"MU",
-			"EWIEGA46WW/moc_NivelEntrevista.cpp",
-			null
-		],
-		[
-			"D:/ProyectoFinal/final/NivelEscenaCrimen.h",
-			"MU",
-			"EWIEGA46WW/moc_NivelEscenaCrimen.cpp",
-			null
-		],
-		[
-			"D:/ProyectoFinal/final/NivelResolucion.h",
-			"MU",
-			"EWIEGA46WW/moc_NivelResolucion.cpp",
-			null
-		],
-		[
 			"D:/ProyectoFinal/final/dialogo.h",
 			"MU",
 			"EWIEGA46WW/moc_dialogo.cpp",
@@ -299,9 +275,39 @@
 			null
 		],
 		[
+			"D:/ProyectoFinal/final/lisa.h",
+			"MU",
+			"EWIEGA46WW/moc_lisa.cpp",
+			null
+		],
+		[
 			"D:/ProyectoFinal/final/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"D:/ProyectoFinal/final/nivel.h",
+			"MU",
+			"EWIEGA46WW/moc_nivel.cpp",
+			null
+		],
+		[
+			"D:/ProyectoFinal/final/nivelentrevista.h",
+			"MU",
+			"EWIEGA46WW/moc_nivelentrevista.cpp",
+			null
+		],
+		[
+			"D:/ProyectoFinal/final/nivelescenacrimen.h",
+			"MU",
+			"EWIEGA46WW/moc_nivelescenacrimen.cpp",
+			null
+		],
+		[
+			"D:/ProyectoFinal/final/nivelresolucion.h",
+			"MU",
+			"EWIEGA46WW/moc_nivelresolucion.cpp",
 			null
 		],
 		[
@@ -397,8 +403,13 @@
 		[ "D:/ProyectoFinal/final/dialogo.cpp", "MU", null ],
 		[ "D:/ProyectoFinal/final/inventario.cpp", "MU", null ],
 		[ "D:/ProyectoFinal/final/juego.cpp", "MU", null ],
+		[ "D:/ProyectoFinal/final/lisa.cpp", "MU", null ],
 		[ "D:/ProyectoFinal/final/main.cpp", "MU", null ],
 		[ "D:/ProyectoFinal/final/mainwindow.cpp", "MU", null ],
+		[ "D:/ProyectoFinal/final/nivel.cpp", "MU", null ],
+		[ "D:/ProyectoFinal/final/nivelentrevista.cpp", "MU", null ],
+		[ "D:/ProyectoFinal/final/nivelescenacrimen.cpp", "MU", null ],
+		[ "D:/ProyectoFinal/final/nivelresolucion.cpp", "MU", null ],
 		[ "D:/ProyectoFinal/final/objetointeractivo.cpp", "MU", null ],
 		[ "D:/ProyectoFinal/final/pista.cpp", "MU", null ],
 		[ "D:/ProyectoFinal/final/sospechoso.cpp", "MU", null ]

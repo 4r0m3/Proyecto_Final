@@ -3,21 +3,52 @@
 
 #include <vector>
 #include "Nivel.h"
-#include "Inventario.h"
+#include "inventario.h"
 
-class Juego {
+using namespace std;
+
+/**
+ * @brief Clase principal que controla el flujo del juego
+ * @details Gestiona el inventario, los niveles y el progreso del jugador
+ */
+class juego {
 public:
-    Juego();
+    juego();
+    ~juego();
+
+    /**
+     * @brief Inicia el juego y carga el primer nivel
+     */
     void iniciarJuego();
+
+    /**
+     * @brief Carga un nivel especÃ­fico por su ID
+     * @param nivelID ID del nivel a cargar
+     */
     void cargarNivel(int nivelID);
-    void mostrarInventario();
+
+    /**
+     * @brief Muestra el contenido actual del inventario
+     */
+    void mostrarInventario() const;
+
+    /**
+     * @brief Agrega puntos al contador de verdad
+     * @param puntos Cantidad de puntos a agregar
+     */
     void actualizarPuntosVerdad(int puntos);
 
+    /**
+     * @brief Acceso al inventario del juego
+     * @return Puntero al inventario actual del juego
+     */
+    Inventario* getInventario() const;
+
 private:
-    Inventario* inventario;
-    Nivel* nivelActual;
-    int puntosVerdad;
-    int nivelActualID;
+    Inventario* inventario; ///< Inventario de pistas recolectadas por el jugador
+    Nivel* nivelActual; ///< Puntero al nivel actual
+    int puntosVerdad; ///< Puntaje de progreso en el juego
+    int nivelActualID; ///< ID del nivel actual
 };
 
 #endif // JUEGO_H
