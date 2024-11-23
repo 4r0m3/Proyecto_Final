@@ -33,12 +33,6 @@ public:
     void mostrarInventario() const;
 
     /**
-     * @brief Agrega puntos al contador de verdad
-     * @param puntos Cantidad de puntos a agregar
-     */
-    void actualizarPuntosVerdad(int puntos);
-
-    /**
      * @brief Acceso al inventario del juego
      * @return Puntero al inventario actual del juego
      */

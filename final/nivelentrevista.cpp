@@ -38,3 +38,4 @@ void NivelEntrevista::mostrarSospechosos() const {
         cout << "- " << sospechoso->obtenerNombre() << endl;
     }
 }
+

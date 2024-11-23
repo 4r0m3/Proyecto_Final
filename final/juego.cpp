@@ -55,12 +55,6 @@ void juego::mostrarInventario() const {
     inventario->mostrarInventario();
 }
 
-// Actualiza los puntos de verdad acumulados
-void juego::actualizarPuntosVerdad(int puntos) {
-    puntosVerdad += puntos;
-    cout << "Puntos de verdad actualizados a: " << puntosVerdad << endl;
-}
-
 // Retorna un puntero al inventario actual del juego
 Inventario* juego::getInventario() const {
     return inventario;

@@ -1,5 +1,11 @@
 D:/ProyectoFinal/final/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/final_autogen/EWIEGA46WW/moc_mainwindow.cpp: D:/ProyectoFinal/final/mainwindow.h \
   D:/ProyectoFinal/final/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/final_autogen/moc_predefs.h \
+  D:/ProyectoFinal/final/Inventario.h \
+  D:/ProyectoFinal/final/Juego.h \
+  D:/ProyectoFinal/final/Nivel.h \
+  D:/ProyectoFinal/final/ObjetoInteractivo.h \
+  D:/ProyectoFinal/final/Pista.h \
+  D:/ProyectoFinal/final/inventario.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtCore/QList \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtCore/QObject \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtCore/QRect \
@@ -153,6 +159,7 @@ D:/ProyectoFinal/final/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/final_autogen/E
   D:/Qt-Creator/6.7.2/mingw_64/include/QtGui/qkeysequence.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtGui/qpaintdevice.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtGui/qpainter.h \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtGui/qpainterpath.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtGui/qpalette.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtGui/qpen.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtGui/qpixelformat.h \
@@ -173,14 +180,24 @@ D:/ProyectoFinal/final/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/final_autogen/E
   D:/Qt-Creator/6.7.2/mingw_64/include/QtGui/qvectornd.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/QGraphicsItem \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/QMainWindow \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/QPushButton \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/QVBoxLayout \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qabstractbutton.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qboxlayout.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qframe.h \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qgraphicsitem.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qgraphicsscene.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qgraphicsview.h \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qgridlayout.h \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qlayout.h \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qmainwindow.h \
+  D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qpushbutton.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
   D:/Qt-Creator/6.7.2/mingw_64/include/QtWidgets/qtabwidget.h \
