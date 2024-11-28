@@ -16,7 +16,7 @@ public:
 
     /**
      * @brief Agrega una pista al inventario
-     * @param pista Puntero a la pista que se agregarÃ¡ al inventario
+     * @param pista Puntero a la pista que se agregará al inventario
      */
     void agregarPista(Pista* pista);
 
@@ -26,14 +26,15 @@ public:
     void mostrarInventario() const;
 
     /**
-     * @brief Busca una pista en el inventario por su descripciÃ³n
-     * @param descripcion DescripciÃ³n de la pista a buscar
+     * @brief Busca una pista en el inventario por su descripción
+     * @param descripcion Descripción de la pista a buscar
      * @return Puntero a la pista encontrada o nullptr si no existe
      */
     Pista* buscarPista(const string& descripcion) const;
 
 private:
-    vector<Pista*> pistas; ///< Vector dinÃ¡mico que almacena las pistas recolectadas
+    vector<Pista*> pistas; ///< Vector dinámico que almacena las pistas recolectadas
 };
 
 #endif // INVENTARIO_H
+

@@ -10,7 +10,7 @@ void Inventario::agregarPista(Pista* pista) {
         pistas.push_back(pista);
         cout << "Pista agregada al inventario: " << pista->obtenerDescripcion() << endl;
     } else {
-        cerr << "Error: Pista invÃ¡lida." << endl;
+        cerr << "Error: Pista inválida." << endl;
     }
 }
 
@@ -22,7 +22,7 @@ void Inventario::mostrarInventario() const {
     }
 }
 
-// Busca una pista por su descripciÃ³n
+// Busca una pista por su descripción
 Pista* Inventario::buscarPista(const string& descripcion) const {
     for (const auto& pista : pistas) {
         if (pista->obtenerDescripcion() == descripcion) {
@@ -31,3 +31,4 @@ Pista* Inventario::buscarPista(const string& descripcion) const {
     }
     return nullptr;
 }
+

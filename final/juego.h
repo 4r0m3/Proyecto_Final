@@ -1,48 +1,66 @@
 #ifndef JUEGO_H
 #define JUEGO_H
 
-#include <vector>
+#include <QGraphicsScene>
 #include "Nivel.h"
-#include "inventario.h"
-
-using namespace std;
+#include "Inventario.h"
 
 /**
- * @brief Clase principal que controla el flujo del juego
- * @details Gestiona el inventario, los niveles y el progreso del jugador
+ * @brief Clase que gestiona el flujo general del juego
  */
 class juego {
 public:
+    /**
+     * @brief Constructor de la clase juego
+     */
     juego();
+
+    /**
+     * @brief Destructor de la clase juego
+     */
     ~juego();
 
     /**
-     * @brief Inicia el juego y carga el primer nivel
+     * @brief Inicia el juego desde el primer nivel
      */
     void iniciarJuego();
 
     /**
-     * @brief Carga un nivel especÃ­fico por su ID
-     * @param nivelID ID del nivel a cargar
+     * @brief Carga el nivel especificado
+     * @param nivelID Identificador del nivel a cargar
      */
     void cargarNivel(int nivelID);
 
     /**
-     * @brief Muestra el contenido actual del inventario
+     * @brief Muestra el inventario actual
      */
     void mostrarInventario() const;
 
     /**
-     * @brief Acceso al inventario del juego
-     * @return Puntero al inventario actual del juego
+     * @brief Retorna un puntero al inventario actual
+     * @return Puntero al objeto `Inventario`
      */
     Inventario* getInventario() const;
 
+    /**
+     * @brief Devuelve la escena actual del nivel cargado
+     * @return Puntero a `QGraphicsScene` del nivel actual
+     */
+    QGraphicsScene* getEscenaActual() const;
+
+    /**
+     * @brief Verifica si un nivel ha sido completado
+     * @param nivelID Identificador del nivel
+     * @return true si el nivel ha sido completado, false en caso contrario
+     */
+    bool nivelCompletado(int nivelID) const;
+
 private:
-    Inventario* inventario; ///< Inventario de pistas recolectadas por el jugador
-    Nivel* nivelActual; ///< Puntero al nivel actual
-    int puntosVerdad; ///< Puntaje de progreso en el juego
-    int nivelActualID; ///< ID del nivel actual
+    Inventario* inventario; ///< Inventario compartido entre los niveles
+    Nivel* nivelActual; ///< Puntero al nivel actualmente cargado
+    int nivelActualID; ///< Identificador del nivel actual
+
 };
 
 #endif // JUEGO_H
+

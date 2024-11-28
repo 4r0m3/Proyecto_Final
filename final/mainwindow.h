@@ -2,50 +2,53 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
-#include <QGraphicsView>
 #include <QGraphicsScene>
-#include <QKeyEvent>
+#include <QGraphicsView>
 #include <QPushButton>
 #include <QVBoxLayout>
-#include "Juego.h"
+#include "juego.h"
 
-
-QT_BEGIN_NAMESPACE
-namespace Ui {
-class MainWindow;
-}
-QT_END_NAMESPACE
-
-class MainWindow : public QMainWindow
-{
+class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
+    /**
+     * @brief Constructor de la clase MainWindow
+     * @param parent Puntero al widget padre (por defecto nullptr)
+     */
     MainWindow(QWidget *parent = nullptr);
+
+    /**
+     * @brief Destructor de la clase MainWindow
+     */
     ~MainWindow();
 
-    void keyPressEvent(QKeyEvent* event);
-
 private slots:
+    /**
+     * @brief Cambia a la escena de selección de niveles
+     */
+    void irSeleccionNiveles();
+
+    /**
+     * @brief Cambia a la escena del nivel 1
+     */
     void cambiarNivel1();
+
+    /**
+     * @brief Cambia a la escena del nivel 2
+     */
     void cambiarNivel2();
+
+    /**
+     * @brief Cambia a la escena del nivel 3
+     */
     void cambiarNivel3();
 
 private:
-    Ui::MainWindow *ui;
-    QGraphicsView *vista;
-
-    QGraphicsScene *scene;
-    QGraphicsRectItem* Personaje;
-    QGraphicsRectItem* inventario;
-    QGraphicsRectItem* dialogos;
-    juego* juego; ///< Instancia del controlador lÃ³gico del juego
-    QPushButton* botonNivel1; ///< BotÃ³n para cargar el Nivel 1
-    QPushButton* botonNivel2; ///< BotÃ³n para cargar el Nivel 2
-    QPushButton* botonNivel3; ///< BotÃ³n para cargar el Nivel 3
-    QVBoxLayout* layout; ///< Layout principal para los botones y la vista
-
-    int cont_I;
-
+    QGraphicsView* vista; ///< Vista gráfica para mostrar las escenas
+    QGraphicsScene* escenaMenu; ///< Escena del menú principal
+    QGraphicsScene* escenaSeleccionNiveles; ///< Escena de selección de niveles
+    juego* juego; ///< Instancia del juego
 };
+
 #endif // MAINWINDOW_H

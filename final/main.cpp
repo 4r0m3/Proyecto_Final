@@ -1,20 +1,15 @@
-#include "mainwindow.h"
-
-#include "Juego.h"
-#include "Pista.h"
-#include "Sospechoso.h"
-#include "Dialogo.h"
-#include "Inventario.h"
-
 #include <QApplication>
+#include "MainWindow.h"
 
-int main(int argc, char *argv[])
-{
-    juego game;
-    game.iniciarJuego();
+int main(int argc, char *argv[]) {
+    // Inicializar la aplicación Qt
+    QApplication app(argc, argv);
 
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
-    return a.exec();
+    // Crear y mostrar la ventana principal
+    MainWindow mainWindow;
+    mainWindow.show();
+
+    // Ejecutar el bucle principal de eventos
+    return app.exec();
 }
+

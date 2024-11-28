@@ -12,8 +12,8 @@ public:
     void interactuar() override;
 
     /**
-     * @brief Devuelve la descripciÃ³n de la pista
-     * @return DescripciÃ³n de la pista
+     * @brief Devuelve la descripción de la pista
+     * @return Descripción de la pista
      */
     string obtenerDescripcion() const;
 
@@ -23,8 +23,8 @@ public:
     void marcarComoClave();
 
     /**
-     * @brief Define el Ã¡rea del objeto en la escena
-     * @return Ãrea rectangular del objeto
+     * @brief Define el área del objeto en la escena
+     * @return Área rectangular del objeto
      */
     QRectF boundingRect() const override;
 
@@ -37,7 +37,7 @@ public:
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
 
 private:
-    string descripcion; ///< DescripciÃ³n de la pista
+    string descripcion; ///< Descripción de la pista
     bool esClave; ///< Indica si la pista es clave para el progreso del juego
 };
 

@@ -3,10 +3,8 @@
 
 #include <QGraphicsScene>
 #include <vector>
-#include <map>
 #include <string>
 #include "ObjetoInteractivo.h"
-#include "Pista.h"
 #include "Inventario.h"
 
 using namespace std;
@@ -16,18 +14,38 @@ using namespace std;
  */
 class Nivel {
 public:
+    /**
+     * @brief Constructor de la clase Nivel
+     * @param inventario Referencia al inventario compartido del juego
+     */
     Nivel(Inventario* inventario);
+
+    /**
+     * @brief Destructor virtual
+     */
     virtual ~Nivel();
 
     /**
-     * @brief MÃ©todo para iniciar el nivel
+     * @brief Método para iniciar el nivel
+     * @param escena Escena gráfica del nivel
      */
     virtual void iniciarNivel(QGraphicsScene* escena) = 0;
 
     /**
-     * @brief MÃ©todo para finalizar el nivel
+     * @brief Método para finalizar el nivel
      */
     virtual void terminarNivel() = 0;
+
+    /**
+     * @brief Actualiza la lógica del nivel
+     */
+    virtual void actualizar() = 0;
+    /**
+    * @brief Devuelve la escena actual del nivel
+     * @return Puntero a la escena del nivel
+    */
+    QGraphicsScene* getEscena() const;
+
 
     /**
      * @brief Agrega un objeto interactivo a la escena
@@ -35,17 +53,15 @@ public:
      */
     void agregarObjetoInteractivo(ObjetoInteractivo* objeto);
 
-    /**
-     * @brief Muestra los objetos interactivos disponibles en el nivel
-     */
-    void mostrarObjetosInteractivos() const;
-
 protected:
-    QGraphicsScene* escena; ///< Escena grÃ¡fica del nivel
+    QGraphicsScene* escena; ///< Escena gráfica del nivel
     vector<ObjetoInteractivo*> objetosInteractivos; ///< Objetos interactivos en el nivel
     Inventario* inventario; ///< Referencia al inventario compartido
-    string objetivo; ///< DescripciÃ³n del objetivo del nivel
+    string objetivo; ///< Descripción del objetivo del nivel
 };
 
 #endif // NIVEL_H
+
+
+
 
