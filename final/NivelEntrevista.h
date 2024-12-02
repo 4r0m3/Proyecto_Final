@@ -4,6 +4,7 @@
 #include "Nivel.h"
 #include "Sospechoso.h"
 #include <vector>
+#include <QGraphicsRectItem>  // Para crear un objeto simple sin una clase propia
 
 /**
  * @brief Clase que representa el nivel de entrevistas a sospechosos
@@ -14,7 +15,7 @@ public:
      * @brief Constructor de NivelEntrevista
      * @param inventario Referencia al inventario compartido del juego
      */
-    NivelEntrevista(Inventario* inventario);
+    NivelEntrevista(Inventario* inventario, class juego* juego);
 
     /**
      * @brief Inicia el nivel de entrevistas
@@ -45,8 +46,10 @@ public:
 
 private:
     vector<Sospechoso*> sospechosos; ///< Lista de sospechosos en el nivel
+    QGraphicsRectItem* jefeGorgory; ///< Objeto simple que representa al jefe Gorgory
 };
 
 #endif // NIVELENTREVISTA_H
+
 
 

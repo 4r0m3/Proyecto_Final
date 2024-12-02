@@ -3,8 +3,10 @@
 #include "NivelEntrevista.h"
 #include "NivelResolucion.h"
 #include <iostream>
+#include <QGraphicsView>
 
-juego::juego() : inventario(new Inventario()), nivelActual(nullptr), nivelActualID(0) {}
+// Constructor de la clase Juego
+juego::juego() : inventario(new Inventario()), nivelActual(nullptr), nivelActualID(0), vista(nullptr), pistasRecolectadas(0), sospechososEntrevistados(0) {}
 
 // Destructor de la clase Juego
 juego::~juego() {
@@ -13,8 +15,9 @@ juego::~juego() {
 }
 
 // Inicia el juego desde el primer nivel
-void juego::iniciarJuego() {
-    cout << "Bienvenido al juego." << endl;
+void juego::iniciarJuego(QGraphicsView* vista) {
+    this->vista = vista; // Asocia la vista para centrarla en Lisa
+    std::cout << "Bienvenido al juego." << std::endl;
     cargarNivel(1); // Inicia con el primer nivel
 }
 
@@ -24,65 +27,88 @@ void juego::cargarNivel(int nivelID) {
 
     switch (nivelID) {
     case 1:
-        nivelActual = new NivelEscenaCrimen(inventario);  // Pasamos el inventario al nivel
-        cout << "Nivel 1: Escena del crimen cargado." << endl;
+        nivelActual = new NivelEscenaCrimen(inventario, this);  // Pasamos inventario y el puntero a juego
+        pistasRecolectadas = 0; // Reinicia las pistas recolectadas
+        std::cout << "Nivel 1: Escena del crimen cargado." << std::endl;
         break;
     case 2:
-        if (nivelCompletado(1)) {  // Verificamos que el nivel anterior esté completado
-            nivelActual = new NivelEntrevista(inventario);
-            cout << "Nivel 2: Entrevista a sospechosos cargado." << endl;
+        if (nivelCompletado(1)) {
+            nivelActual = new NivelEntrevista(inventario, this);  // Asegúrate de pasar el puntero a juego
+            sospechososEntrevistados = 0;
+            std::cout << "Nivel 2: Entrevista a sospechosos cargado." << std::endl;
         } else {
-            cout << "Debes completar el Nivel 1 primero." << endl;
-            return; // No podemos acceder al nivel 2 sin completar el nivel 1
+            std::cout << "Debes completar el Nivel 1 primero." << std::endl;
+            return;
         }
         break;
     case 3:
-        if (nivelCompletado(2)) {  // Verificamos que el nivel anterior esté completado
-            nivelActual = new NivelResolucion(inventario);
-            cout << "Nivel 3: Resolución del caso cargado." << endl;
+        if (nivelCompletado(2)) {
+            nivelActual = new NivelResolucion(inventario, this);  // Asegúrate de pasar el puntero a juego
+            std::cout << "Nivel 3: Resolución del caso cargado." << std::endl;
         } else {
-            cout << "Debes completar el Nivel 2 primero." << endl;
-            return; // No podemos acceder al nivel 3 sin completar el nivel 2
+            std::cout << "Debes completar el Nivel 2 primero." << std::endl;
+            return;
         }
         break;
     default:
         nivelActual = nullptr;
-        cout << "Error: Nivel no válido." << endl;
+        std::cout << "Error: Nivel no válido." << std::endl;
         return;
     }
 
     nivelActualID = nivelID;
     if (nivelActual) {
-        QGraphicsScene* escena = new QGraphicsScene();  // Creamos una nueva escena para cada nivel
-        nivelActual->iniciarNivel(escena);  // Inicia el nivel con la escena gráfica
+        QGraphicsScene* escena = new QGraphicsScene();
+        nivelActual->iniciarNivel(escena); // Inicia el nivel con la escena gráfica
+        vista->setScene(escena);           // Asocia la escena a la vista
+        centrarVistaEnLisa();
     }
 }
 
-// Muestra el inventario actual llamando a Inventario::mostrarInventario
-void juego::mostrarInventario() const {
-    inventario->mostrarInventario();
+// Método para centrar la vista en Lisa
+void juego::centrarVistaEnLisa() const {
+    if (nivelActual && vista) {
+        class Lisa* lisa = nivelActual->getLisa(); // Obtén a Lisa del nivel actual
+        if (lisa) {
+            vista->centerOn(lisa); // Centra la vista en Lisa
+        }
+    }
 }
 
-// Retorna un puntero al inventario actual del juego
-Inventario* juego::getInventario() const {
-    return inventario;
+// Método para registrar pistas recolectadas en el nivel 1
+void juego::registrarPista() {
+    pistasRecolectadas++;
+    std::cout << "Pistas recolectadas: " << pistasRecolectadas << std::endl;
+    if (pistasRecolectadas >= 5) { // Suponiendo que hay 5 pistas en el nivel 1
+        std::cout << "¡Has recolectado todas las pistas! Nivel 1 completado." << std::endl;
+    }
 }
 
-// Método que devuelve la escena del nivel actual
-QGraphicsScene* juego::getEscenaActual() const {
-    return nivelActual ? nivelActual->getEscena() : nullptr;  // Devuelve la escena del nivel actual
+// Método para registrar sospechosos entrevistados en el nivel 2
+void juego::registrarEntrevista() {
+    sospechososEntrevistados++;
+    std::cout << "Sospechosos entrevistados: " << sospechososEntrevistados << std::endl;
+    if (sospechososEntrevistados >= 6) { // Suponiendo que hay 6 sospechosos
+        std::cout << "¡Has entrevistado a todos los sospechosos! Nivel 2 completado." << std::endl;
+    }
 }
 
 // Método para verificar si un nivel ha sido completado
 bool juego::nivelCompletado(int nivelID) const {
     switch (nivelID) {
     case 1:
-        return (nivelActualID >= 1);  // Si el nivel actual es 1 o mayor, el nivel 1 está completo
+        return (pistasRecolectadas >= 5); // Nivel 1 se completa recolectando todas las pistas
     case 2:
-        return (nivelActualID >= 2);  // Si el nivel actual es 2 o mayor, el nivel 2 está completo
+        return (sospechososEntrevistados >= 6); // Nivel 2 se completa entrevistando a todos los sospechosos
     case 3:
-        return (nivelActualID >= 3);  // Si el nivel actual es 3 o mayor, el nivel 3 está completo
+        return (nivelActualID == 3); // Nivel 3 se completa con la revelación del caso
     default:
         return false;
     }
 }
+
+// Método que devuelve la escena del nivel actual
+QGraphicsScene* juego::getEscenaActual() const {
+    return nivelActual ? nivelActual->getEscena() : nullptr;
+}
+

@@ -1,11 +1,15 @@
 #include "lisa.h"
 #include <iostream>
+#include <QGraphicsView>
+#include <juego.h>
+#include <pista.h>
+#include <sospechoso.h>
 
-// Constructor de Lisa, inicializa los sprites y otros atributos
 Lisa::Lisa(class juego* juego, QGraphicsItem* parent)
     : QGraphicsItem(parent), juego(juego), velocidad(5.0), movingLeft(false), movingRight(false), movingUp(false), movingDown(false) {
     cargarSprites();
     spriteActual = spriteFrontal; // Lisa inicia con el sprite frontal
+    setPos(400, 300); // Posición inicial de Lisa, puede ajustarse
 }
 
 // Define el área que ocupa Lisa en la escena
@@ -51,6 +55,19 @@ void Lisa::mover() {
     if (movingDown) {
         setY(y() + velocidad);
     }
+
+    // Asegura que Lisa permanezca dentro de los límites de la escena
+    if (scene()) {
+        QRectF bounds = scene()->sceneRect();
+        if (x() < bounds.left()) setX(bounds.left());
+        if (x() + boundingRect().width() > bounds.right()) setX(bounds.right() - boundingRect().width());
+        if (y() < bounds.top()) setY(bounds.top());
+        if (y() + boundingRect().height() > bounds.bottom()) setY(bounds.bottom() - boundingRect().height());
+    }
+
+    // Mueve la vista para que siempre siga a Lisa
+    QGraphicsView* view = static_cast<QGraphicsView*>(juego->getVista());
+    view->centerOn(this);  // Centra la vista en Lisa
 }
 
 // Detiene el movimiento del personaje
@@ -70,6 +87,13 @@ bool Lisa::detectarColision(const QGraphicsItem* item) {
             std::cout << "Pista recogida: " << pista->obtenerDescripcion() << std::endl;
             return true;
         }
+
+        auto* sospechoso = dynamic_cast<const Sospechoso*>(item);
+        if (sospechoso) {
+            std::cout << "Interacción con sospechoso: " << sospechoso->obtenerNombre() << std::endl;
+            // Aquí podrías iniciar un diálogo o realizar una acción
+            return true;
+        }
     }
     return false;
 }
@@ -82,10 +106,10 @@ void Lisa::advance(int phase) {
 
 // Carga todos los sprites del personaje
 void Lisa::cargarSprites() {
-    spriteFrontal = QPixmap(":/images/lisa_frontal.png");
-    spriteTrasero = QPixmap(":/images/lisa_trasero.png");
-    spriteIzquierda = QPixmap(":/images/lisa_izquierda.png");
-    spriteDerecha = QPixmap(":/images/lisa_derecha.png");
+    spriteFrontal = QPixmap(":/sprites/lisa.png");
+    spriteTrasero = QPixmap(":/sprites/espalda.png");
+    spriteIzquierda = QPixmap(":/sprites/lado derecho.png");
+    spriteDerecha = QPixmap(":/sprites/lado.png");
 
     if (spriteFrontal.isNull() || spriteTrasero.isNull() ||
         spriteIzquierda.isNull() || spriteDerecha.isNull()) {

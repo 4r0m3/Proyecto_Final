@@ -2,7 +2,7 @@
 #include <iostream>
 
 // Constructor
-Nivel::Nivel(Inventario* inventario)
+Nivel::Nivel(Inventario* inventario, juego* juego)
     : escena(nullptr), inventario(inventario) {}
 
 // Destructor

@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/">
+        <file>sprites/abogado.png</file>
+        <file>sprites/bar.png</file>
+        <file>sprites/bart.png</file>
+        <file>sprites/burns.png</file>
+        <file>sprites/con bebe.png</file>
+        <file>sprites/doc.png</file>
+        <file>sprites/espalda.png</file>
+        <file>sprites/gafas.png</file>
+        <file>sprites/gorgiee.png</file>
+        <file>sprites/hospital.png</file>
+        <file>sprites/lado derecho .png</file>
+        <file>sprites/lado.png</file>
+        <file>sprites/lisa.png</file>
+        <file>sprites/menu.png</file>
+        <file>sprites/parqueadero.png</file>
+        <file>sprites/pasillo00.png</file>
+        <file>sprites/paso.png</file>
+        <file>sprites/pixilart-drawing(1).png</file>
+        <file>sprites/pixilart-drawing(2).png</file>
+        <file>sprites/pixilart-drawing(3).png</file>
+        <file>sprites/pixilart-drawing(4).png</file>
+        <file>sprites/pixilart-drawing(5).png</file>
+        <file>sprites/pixilart-drawing(6).png</file>
+        <file>sprites/pixilart-drawing.png</file>
+        <file>sprites/Sprite-0010.png</file>
+        <file>sprites/trago.png</file>
+    </qresource>
+    <qresource prefix="/sprites/lisa"/>
+</RCC>

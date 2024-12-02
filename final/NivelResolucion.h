@@ -2,18 +2,25 @@
 #define NIVELRESOLUCION_H
 
 #include "Nivel.h"
-#include <string>
+#include "Sospechoso.h"
+#include "Juego.h"
+#include <QPushButton>
+#include <QGraphicsRectItem>
+#include <QObject>
 
-/**
- * @brief Clase que representa el nivel de resolución del caso
- */
 class NivelResolucion : public Nivel {
+private:
+    vector<Sospechoso*> sospechosos;  ///< Lista de sospechosos
+    QPushButton* botonSospechoso[6];  ///< Botones para acusar a los sospechosos
+    QGraphicsTextItem* textoMensaje; ///< Mensaje de revelación
+
 public:
     /**
      * @brief Constructor de NivelResolucion
      * @param inventario Referencia al inventario compartido del juego
+     * @param juego Referencia al juego
      */
-    NivelResolucion(Inventario* inventario);
+    NivelResolucion(Inventario* inventario, juego* juego);
 
     /**
      * @brief Inicia el nivel de resolución
@@ -27,18 +34,19 @@ public:
     void terminarNivel() override;
 
     /**
-     * @brief Resuelve el caso seleccionando al culpable
-     * @param sospechoso Nombre del sospechoso elegido
-     */
-    void resolverCaso(const string& sospechoso);
-
-    /**
-     * @brief Actualiza la lógica del nivel
+     * @brief Actualiza el nivel, mostrando los botones de acusación
      */
     void actualizar() override;
 
-private:
-    string culpable; ///< Culpable real del caso
+    /**
+     * @brief Responde a la acusación de Lisa
+     */
+    void acusarSospechoso(int indice);
+
+    /**
+     * @brief Crea los botones de acusación
+     */
+    void crearBotonesAcusacion(QGraphicsScene* escena);
 };
 
 #endif // NIVELRESOLUCION_H

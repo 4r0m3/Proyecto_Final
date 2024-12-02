@@ -1,40 +1,49 @@
 #ifndef INVENTARIO_H
 #define INVENTARIO_H
 
-#include <vector>
 #include "Pista.h"
+#include <vector>
 #include <string>
+
 using namespace std;
 
 /**
- * @brief Clase que representa el inventario de pistas de Lisa
- * @details Almacena y gestiona las pistas recolectadas en el juego
+ * @brief Clase que gestiona el inventario de pistas en el juego
  */
 class Inventario {
+private:
+    vector<Pista*> pistas; ///< Almacena las pistas recolectadas
+
 public:
+    /**
+     * @brief Constructor por defecto
+     */
     Inventario();
 
     /**
      * @brief Agrega una pista al inventario
-     * @param pista Puntero a la pista que se agregará al inventario
+     * @param pista Puntero a la pista que se va a agregar
      */
     void agregarPista(Pista* pista);
 
     /**
-     * @brief Muestra las pistas almacenadas en el inventario
+     * @brief Verifica si todas las pistas clave han sido recolectadas
+     * @return true si todas las pistas clave están recolectadas, false en caso contrario
      */
-    void mostrarInventario() const;
+    bool todasLasPistasClaveRecolectadas() const;
 
     /**
-     * @brief Busca una pista en el inventario por su descripción
+     * @brief Busca una pista por su descripción
      * @param descripcion Descripción de la pista a buscar
      * @return Puntero a la pista encontrada o nullptr si no existe
      */
     Pista* buscarPista(const string& descripcion) const;
 
-private:
-    vector<Pista*> pistas; ///< Vector dinámico que almacena las pistas recolectadas
+    /**
+     * @brief Devuelve el número de pistas recolectadas
+     * @return Cantidad de pistas en el inventario
+     */
+    int obtenerCantidadPistas() const;
 };
 
 #endif // INVENTARIO_H
-

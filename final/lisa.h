@@ -5,8 +5,11 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QKeyEvent>
-#include "juego.h"  // Incluye la referencia a Juego para acceder al inventario
-#include "Pista.h"
+
+// Forward declaration para evitar inclusiones circulares
+class juego;
+class Pista;
+class Sospechoso;
 
 /**
  * @brief Clase que representa al personaje principal Lisa Simpson
@@ -14,28 +17,28 @@
  */
 class Lisa : public QGraphicsItem {
 private:
-    QPixmap spriteFrontal;    ///< Sprite de Lisa de frente
-    QPixmap spriteTrasero;    ///< Sprite de Lisa de espaldas
-    QPixmap spriteIzquierda;  ///< Sprite de Lisa caminando a la izquierda
-    QPixmap spriteDerecha;    ///< Sprite de Lisa caminando a la derecha
-    QPixmap spriteActual;     ///< Sprite actual a mostrar
-    qreal velocidad;          ///< Velocidad de movimiento del personaje
-    class juego* juego;       ///< Referencia a la clase Juego para acceder al inventario y otras funciones
-    bool movingLeft;          ///< Estado de movimiento hacia la izquierda
-    bool movingRight;         ///< Estado de movimiento hacia la derecha
-    bool movingUp;            ///< Estado de movimiento hacia arriba
-    bool movingDown;          ///< Estado de movimiento hacia abajo
+    QPixmap spriteFrontal;     ///< Sprite cuando Lisa está mirando hacia abajo
+    QPixmap spriteTrasero;     ///< Sprite cuando Lisa está mirando hacia arriba
+    QPixmap spriteIzquierda;   ///< Sprite cuando Lisa está mirando hacia la izquierda
+    QPixmap spriteDerecha;     ///< Sprite cuando Lisa está mirando hacia la derecha
+    QPixmap spriteActual;      ///< Sprite actual según el movimiento de Lisa
+    qreal velocidad;           ///< Velocidad de movimiento del personaje
+    bool movingLeft;           ///< Estado de movimiento hacia la izquierda
+    bool movingRight;          ///< Estado de movimiento hacia la derecha
+    bool movingUp;             ///< Estado de movimiento hacia arriba
+    bool movingDown;           ///< Estado de movimiento hacia abajo
+    juego* juego;              ///< Referencia a la clase Juego para acceso a inventario y lógica
 
 public:
     /**
      * @brief Constructor de la clase Lisa
-     * @param juego Puntero a la instancia de juego para acceder al inventario
+     * @param juego Puntero a la instancia del juego
      * @param parent Puntero al item padre (opcional)
      */
     Lisa(class juego* juego, QGraphicsItem* parent = nullptr);
 
     /**
-     * @brief Destructor virtual por defecto
+     * @brief Destructor virtual
      */
     ~Lisa() override = default;
 
@@ -94,10 +97,9 @@ private:
 
     /**
      * @brief Cambia el sprite actual según la dirección de movimiento
-     * @param direction Dirección del movimiento (frontal, trasero, izquierda, derecha)
+     * @param direction Dirección del movimiento ("frontal", "trasero", "izquierda", "derecha")
      */
     void actualizarSprite(const QString& direction);
 };
 
 #endif // LISA_H
-

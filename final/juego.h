@@ -2,13 +2,22 @@
 #define JUEGO_H
 
 #include <QGraphicsScene>
-#include "Nivel.h"
+#include <QGraphicsView>
 #include "Inventario.h"
+#include "Nivel.h"
 
-/**
- * @brief Clase que gestiona el flujo general del juego
- */
+// Forward declaration para evitar inclusiones circulares
+class Lisa;
+
 class juego {
+private:
+    Inventario* inventario;         ///< Referencia al inventario del juego
+    Nivel* nivelActual;             ///< Puntero al nivel actual
+    int nivelActualID;              ///< ID del nivel actual
+    QGraphicsView* vista;           ///< Vista gráfica para centrarla en Lisa
+    int pistasRecolectadas;         ///< Contador de pistas recolectadas en el nivel 1
+    int sospechososEntrevistados;   ///< Contador de sospechosos entrevistados en el nivel 2
+
 public:
     /**
      * @brief Constructor de la clase juego
@@ -22,45 +31,59 @@ public:
 
     /**
      * @brief Inicia el juego desde el primer nivel
+     * @param vista Puntero a la instancia de QGraphicsView para manejar la vista
      */
-    void iniciarJuego();
+    void iniciarJuego(QGraphicsView* vista);
 
     /**
-     * @brief Carga el nivel especificado
-     * @param nivelID Identificador del nivel a cargar
+     * @brief Carga un nivel específico
+     * @param nivelID ID del nivel a cargar
      */
     void cargarNivel(int nivelID);
 
     /**
-     * @brief Muestra el inventario actual
+     * @brief Método para centrar la vista en Lisa
      */
-    void mostrarInventario() const;
+    void centrarVistaEnLisa() const;
 
     /**
-     * @brief Retorna un puntero al inventario actual
-     * @return Puntero al objeto `Inventario`
+     * @brief Método para registrar pistas recolectadas en el nivel 1
      */
-    Inventario* getInventario() const;
+    void registrarPista();
 
     /**
-     * @brief Devuelve la escena actual del nivel cargado
-     * @return Puntero a `QGraphicsScene` del nivel actual
+     * @brief Método para registrar sospechosos entrevistados en el nivel 2
+     */
+    void registrarEntrevista();
+
+    /**
+     * @brief Método para verificar si un nivel ha sido completado
+     * @param nivelID ID del nivel a verificar
+     * @return true si el nivel fue completado, false en caso contrario
+     */
+    bool nivelCompletado(int nivelID) const;
+
+    /**
+     * @brief Devuelve la escena gráfica del nivel actual
+     * @return Puntero a la escena gráfica
      */
     QGraphicsScene* getEscenaActual() const;
 
     /**
-     * @brief Verifica si un nivel ha sido completado
-     * @param nivelID Identificador del nivel
-     * @return true si el nivel ha sido completado, false en caso contrario
+     * @brief Devuelve el puntero a la vista actual del juego
+     * @return Puntero a QGraphicsView
      */
-    bool nivelCompletado(int nivelID) const;
+    QGraphicsView* getVista() const {
+        return vista;
+    }
 
-private:
-    Inventario* inventario; ///< Inventario compartido entre los niveles
-    Nivel* nivelActual; ///< Puntero al nivel actualmente cargado
-    int nivelActualID; ///< Identificador del nivel actual
-
+    /**
+     * @brief Devuelve el inventario del juego
+     * @return Puntero al inventario
+     */
+    Inventario* getInventario() const {
+        return inventario;
+    }
 };
 
 #endif // JUEGO_H
-

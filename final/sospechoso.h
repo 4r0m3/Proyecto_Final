@@ -1,63 +1,41 @@
 #ifndef SOSPECHOSO_H
 #define SOSPECHOSO_H
 
-#include "ObjetoInteractivo.h"
-#include <map>
 #include <string>
+#include <map>
+#include <vector>
+#include <QGraphicsPixmapItem>
+#include "ObjetoInteractivo.h"
 
-using namespace std;
-
-/**
- * @brief Clase que representa a un sospechoso en el juego
- */
 class Sospechoso : public ObjetoInteractivo {
-public:
-    /**
-     * @brief Constructor de Sospechoso
-     * @param nombre Nombre del sospechoso
-     */
-    Sospechoso(const string& nombre);
-
-    /**
-     * @brief Maneja la interacción con el sospechoso
-     */
-    void interactuar() override;
-
-    /**
-     * @brief Devuelve el nombre del sospechoso
-     * @return Nombre del sospechoso
-     */
-    string obtenerNombre() const;
-
-    /**
-     * @brief Agrega una respuesta posible a una pregunta
-     * @param idPregunta ID de la pregunta
-     * @param respuesta Respuesta asociada
-     */
-    void agregarRespuesta(int idPregunta, const string& respuesta);
-
-    /**
-     * @brief Obtiene la respuesta a una pregunta específica
-     * @param idPregunta ID de la pregunta
-     * @return Respuesta asociada o un mensaje si no existe
-     */
-    string obtenerRespuesta(int idPregunta) const;
-
-    /**
-     * @brief Verifica si el sospechoso ya ha sido entrevistado
-     * @return true si fue entrevistado, false en caso contrario
-     */
-    bool haSidoEntrevistado() const;
-
-    /**
-     * @brief Marca al sospechoso como entrevistado
-     */
-    void marcarEntrevistado();
-
 private:
-    map<int, string> respuestas; ///< Respuestas posibles del sospechoso
-    bool entrevistado; ///< Indica si el sospechoso ya fue entrevistado
+    bool entrevistado;              ///< Indica si el sospechoso ha sido entrevistado
+    QGraphicsPixmapItem* sprite;    ///< Sprite del sospechoso
+    std::map<int, std::string> respuestas; ///< Respuestas del sospechoso por pregunta
+
+public:
+    // Constructor
+    explicit Sospechoso(const std::string& nombre);
+
+    // Métodos básicos
+    std::string obtenerNombre() const;    ///< Devuelve el nombre del sospechoso
+    bool haSidoEntrevistado() const;      ///< Verifica si el sospechoso ha sido entrevistado
+    void marcarEntrevistado();            ///< Marca al sospechoso como entrevistado
+
+    // Métodos para asignar respuestas
+    void agregarRespuesta(int idPregunta, const std::string& respuesta); ///< Asigna respuestas al sospechoso
+    std::string obtenerRespuesta(int idPregunta) const; ///< Obtiene la respuesta para una pregunta específica
+
+    // Métodos para el sprite
+    void setSprite(const QString& rutaImagen);   ///< Asigna el sprite del sospechoso
+    QGraphicsPixmapItem* getSprite() const;      ///< Obtiene el sprite del sospechoso
+
+    // Método estático para crear sospechosos según el nivel
+    static std::vector<Sospechoso*> crearSospechosos(int nivelID, QGraphicsScene* escena);
+
+    // Métodos virtuales heredados
+    void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget = nullptr) override;
+    void interactuar() override;
 };
 
 #endif // SOSPECHOSO_H
-
